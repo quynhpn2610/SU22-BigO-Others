@@ -2,7 +2,7 @@ package TwoDArrays;
 
 import java.util.Scanner;
 
-public class SumOfRows {
+public class SumOfRows_01 {
     private static void sumCalc(int[][] a){
         int sum = 0;
         for (int i = 0; i < a.length; i++) {

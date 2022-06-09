@@ -2,7 +2,7 @@ package TwoDArrays;
 
 import java.util.Scanner;
 
-public class AllNegCol {
+public class AllNegCol_02 {
     private static void findNegCol(int[][] a){
 
         for (int j = 0; j < a[0].length; j++) {
