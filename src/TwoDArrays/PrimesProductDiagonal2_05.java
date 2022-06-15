@@ -14,14 +14,15 @@ public class PrimesProductDiagonal2_05 {
         return true;
     }
     public static int productDiagonalPrime(int[][] a){
-        long product = 1;
+        int product = 1;
         for (int i = 0; i < a.length; i++) {
             if(isPrime(a[i][a.length-1-i])) {
-                product *= (long)(a[i][a.length-1-i]);
+                product *= a[i][a.length-1-i];
+                product %= 1000003;
 
             }
         }
-        return (int) (product % 1000003);
+        return (product % 1000003);
     }
 
     public static void main(String[] args) {
