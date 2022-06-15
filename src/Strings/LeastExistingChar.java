@@ -4,7 +4,7 @@ import java.util.*;
 
 public class LeastExistingChar {
     private static char leastExisting(String s){
-        s = s.toLowerCase();
+        s = s.toUpperCase();
         char[] sArr = s.toCharArray();
         Map<Character, Integer> sMap = new HashMap<>();
         List<Character> minExisting = new ArrayList<>();
@@ -18,18 +18,19 @@ public class LeastExistingChar {
                 sMap.put(sArr[i], 1);
             }
         }
+        for (char ch: sMap.keySet()) {
+            if (sMap.get(ch) < min){
+                min = sMap.get(ch);
+            }
+        }
 
         for (char ch: sMap.keySet()) {
-            if (sMap.get(ch) == 1){
+            if (sMap.get(ch) == min){
                 minExisting.add(ch);
             }
         }
-        for (int i = 0; i < minExisting.size(); i++) {
-            if ((int) minExisting.get(i) < min){
-                min = (int)(minExisting.get(i));
-            }
-        }
-        return Character.toUpperCase((char)(min));
+        Collections.sort(minExisting);
+        return minExisting.get(0);
 
     }
 
