@@ -6,7 +6,8 @@ public class ReverseSentence {
     private static String reverseSentence(String s){
         String[] sArr = s.split(" ");
         StringBuilder res = new StringBuilder("");
-        for (int i = sArr.length-1; i>= 0; i--) {
+        res.append(sArr[sArr.length-1]);
+        for (int i = sArr.length-2; i>= 0; i--) {
             res.append(" ").append(sArr[i]);
         }
         return res.toString();
