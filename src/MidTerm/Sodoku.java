@@ -6,28 +6,32 @@ import java.util.Set;
 
 public class Sodoku {
     private static boolean rowOK(int[][] a){
-        Set<Integer> set = new HashSet<Integer>();
+        Set<Integer> set;
         int rowNum = a.length;
         int colNum = a[0].length;
         for (int i = 0; i < rowNum; i++) {
+            set = new HashSet<>();
             for (int j = 0; j < colNum; j++) {
                 set.add(a[i][j]);
             }
+            if (set.size() != 9) return false;
         }
 
-        return (set.size() == 9);
+        return true;
     }
 
     private static boolean colOK(int[][] a){
-        Set<Integer> set = new HashSet<Integer>();
+        Set<Integer> set;
         int rowNum = a.length;
         int colNum = a[0].length;
         for (int j = 0; j < colNum; j++) {
+            set = new HashSet<>();
             for (int i = 0; i < rowNum; i++) {
                 set.add(a[i][j]);
             }
+            if (set.size() != 9) return false;
         }
-        return (set.size() == 9);
+        return true;
     }
 
     private static boolean allBlockOK(int[][] a){
