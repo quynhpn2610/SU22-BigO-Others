@@ -4,23 +4,25 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class LargestDigit {
-    private static ArrayList<Integer> toIntArray(int n){
-        ArrayList<Integer> arr = new ArrayList<>();
-        while (n>0){
-            arr.add(n %= 10);
-            n /= 10;
+    private static int findLargestR(int n, int max){
+        if (n==0) return max;
+        else{
+            if ((n%10) > max){
+                max = n%10;
+            }
+            return findLargestR(n/10, max);
         }
-        return arr;
     }
-    private static int findLargest(ArrayList<Integer> arr, int n){
-        if (arr.size() == 1) return arr.get(0);
-        return Math.max(arr.get(n-1), findLargest(arr, n-1));
+
+    private static int findLargest(int n){
+        if (n==0) return 0;
+        return findLargestR(Math.abs(n), Integer.MIN_VALUE);
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        ArrayList<Integer> arr = toIntArray(n);
-        System.out.println(findLargest(arr, n));
+
+        System.out.println(findLargest(n));
         sc.close();
     }
 }
