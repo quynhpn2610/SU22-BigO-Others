@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-public class Sodoku {
+public class Sudoku {
     private static boolean rowOK(int[][] a){
         Set<Integer> set;
         int rowNum = a.length;
