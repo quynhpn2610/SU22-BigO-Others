@@ -1,7 +1,6 @@
 package CodeForce;
 
-import javax.swing.plaf.IconUIResource;
-import java.util.Arrays;
+
 import java.util.Scanner;
 
 public class ForLoop_TramMinCap {
