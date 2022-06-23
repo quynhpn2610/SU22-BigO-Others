@@ -6,18 +6,18 @@ import java.util.Scanner;
 
 class Students{
     // Attributes
-    int id;
+    String id;
     double[] scores;
 
     // Constructor
-    public Students(int id, double[] scores){
+    public Students(String id, double[] scores){
         this.id = id;
         this.scores = scores;
     }
 
     // toString
     public String toString(){
-        return String.format("%d %.1f %.1f", this.id, this.scores[0], this.scores[1]);
+        return String.format("%s %.1f %.1f", this.id, this.scores[0], this.scores[1]);
     }
 
 }
@@ -27,13 +27,13 @@ public class SchoolManagement {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int q = sc.nextInt();
-        int[] idArr = new int[q];
+        String[] idArr = new String[q];
         double[] scores;
-        HashMap<Integer, double[]> map = new HashMap<>();
+        HashMap<String, double[]> map = new HashMap<>();
 
         // Input n students
         for (int i = 0; i < n; i++) {
-            int id = Integer.parseInt(sc.next());
+            String id = sc.next();
             scores = new double[2];
             for (int j = 0; j < 2; j++) {
                 scores[j] = Double.parseDouble(sc.next());
@@ -44,12 +44,17 @@ public class SchoolManagement {
 
         // input student id and look up
         for (int i = 0; i < q; i++) {
-            int id = Integer.parseInt(sc.nextLine());
+            String id = sc.next();
             idArr[i] = id;
         }
 
         for (int i = 0; i < idArr.length; i++) {
-            if (map.containsKey(idArr[i])) System.out.println(Arrays.toString(map.get(idArr[i])));
+            if (map.containsKey(idArr[i])){
+                for (int j = 0; j < map.get(idArr[i]).length; j++) {
+                    System.out.print(map.get(idArr[i])[j] + " ");
+                }
+            }
+            System.out.println();
         }
     }
 }
