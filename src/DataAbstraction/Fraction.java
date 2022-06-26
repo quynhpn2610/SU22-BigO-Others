@@ -47,6 +47,15 @@ public class Fraction {
         return p3;
     }
 
+    // >
+    public boolean greaterThan(Fraction p){
+        Fraction f = new Fraction(this.num*p.denom, this.denom*p.denom);
+        p = new Fraction(p.num*this.denom, p.denom*this.denom);
+        if (f.num < p.num){
+            return false;
+        }
+        return true;
+    }
 
     // toString
     @Override
