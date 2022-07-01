@@ -1,62 +1,75 @@
 package Sorting;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
-public class AscendingPrimes {
-    // Sieve of Eratosthenes
-    static boolean[] primes = new boolean[1000000];
+public class SortPrimes {
 
-    static void sieve(int n){
-        for (int i = 0; i <= n; i++) {
-            primes[i] = true;
-            primes[1] = false;
+    private static void sortPrimes(int[] nums) {
+        List<Integer> nonPrimeIndices = new ArrayList<>();
+        List<Integer> nonPrimeNumbers = new ArrayList<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            if (!isPrime(nums[i])) {
+                nonPrimeIndices.add(i);
+                nonPrimeNumbers.add(nums[i]);
+            }
         }
 
-        for (int p = 2; p*p < n; p++) {
-            if (primes[p] == true){
-                for (int i = p*2; i <= n; i+=p){
-                    primes[i] = false;
+        selectionSort(nonPrimeNumbers);
+        for (int i = 0; i < nonPrimeIndices.size(); i++) {
+            nums[nonPrimeIndices.get(i)] = nonPrimeNumbers.get(i);
+        }
+    }
+
+
+    private static void selectionSort(List<Integer> nums) {
+        for (int i = 0; i < nums.size() - 1; i++) {
+            int min = nums.get(i);
+            int minInd = i;
+            for (int j = i + 1; j < nums.size(); j++) {
+                if (nums.get(j) < min) {
+                    min = nums.get(j);
+                    minInd = j;
                 }
             }
+            int temp = nums.get(i);
+            nums.set(i, min);
+            nums.set(minInd, temp);
         }
     }
 
-    static void sort(int[] arr, int n){
-        sieve(1000005);
-
-        List<Integer> nonPrimes = new ArrayList<>();
-
-        for (int i = 0; i < n; i++) {
-            if (primes[arr[i]] == false){
-                nonPrimes.add(arr[i]);
+    private static boolean isPrime(int n) {
+        if (n < 2) {
+            return false;
+        }
+        if (n == 2) {
+            return true;
+        }
+        for (int i = 2; i * i <= n; i++) {
+            if (n % i == 0) {
+                return false;
             }
         }
-
-        Collections.sort(nonPrimes); // viet lai thanh ham sort
-
-        int j = 0;
-
-        for (int i = 0; i < n; i++) {
-            if (primes[arr[i]] == true){
-                System.out.println(arr[i] + " ");
-            }
-            else{
-                System.out.println(nonPrimes.get(j) + " ");
-                j++;
-            }
-        }
+        return true;
     }
 
+    private static void print(int[] nums) {
+        for (int num : nums) {
+            System.out.print(num + " ");
+        }
+    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int[] arr = new int[n];
+        int n = Integer.parseInt(sc.next());
+        int[] nums = new int[n];
         for (int i = 0; i < n; i++) {
-            arr[i] = sc.nextInt();
+            nums[i] = Integer.parseInt(sc.next());
         }
-        sort(arr, n);
+        sortPrimes(nums);
+        print(nums);
+        sc.close();
     }
-
-
 }
