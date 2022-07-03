@@ -1,6 +1,6 @@
 package SinglyLinkedList;
 
-public class MyLinkedList<T> {
+class MyLinkedList<T> {
     public MyNode<T> head;
     public MyNode<T> tail;
 
@@ -21,7 +21,4 @@ public class MyLinkedList<T> {
             this.tail = node;
         }
     }
-
-
-
 }

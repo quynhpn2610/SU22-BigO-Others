@@ -1,17 +1,15 @@
 package SinglyLinkedList;
 
-public class MyNode<T>{
+class MyNode<T>{
     T data;
     MyNode<T> next;
 
-    public MyNode(T data, MyNode<T> next){
+    public MyNode(T data, MyNode<T> next) {
         this.data = data;
-        next = null;
+        this.next = next;
     }
 
-    public MyNode(T data){
+    public MyNode(T data) {
         this.data = data;
-        this.next = null;
     }
-
 }
