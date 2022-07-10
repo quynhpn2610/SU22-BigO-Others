@@ -17,6 +17,9 @@ public class FirstRepeatedChar {
                 set.add(c);
             }
         }
+        if(set.size() == s.length()) {
+            System.out.println("null");
+        }
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner (System.in);
