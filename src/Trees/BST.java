@@ -24,4 +24,24 @@ class BST {
         root.printInorderNode();
     }
 
+    public int getHeightBST(){
+        if(root == null){
+            return 0;
+        }
+        return root.getHeightNode();
+    }
+
+    public int sumLeavesBST(){
+        if(root == null){
+            return 0;
+        }
+        return root.sumLeavesNode();
+    }
+
+    public int countFullBST(){
+        if(root == null){
+            return 0;
+        }
+        return root.countFullNode();
+    }
 }

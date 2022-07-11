@@ -50,4 +50,39 @@ class TreeNode{
             right.printInorderNode();
         }
     }
+
+    public int getHeightNode(){
+        double hL = 0, hR = 0;
+        if (left != null){
+            hL = left.getHeightNode();
+        }
+        if (right != null){
+            hR = right.getHeightNode();
+        }
+        int height = (int) (1+Math.max(hL, hR));
+        return height;
+    }
+
+    public int sumLeavesNode() {
+        if (left == null && right == null){
+            return val;
+        }
+        else if (right == null){
+            return left.sumLeavesNode();
+        }
+        else if (left == null){
+            return right.sumLeavesNode();
+        }
+        return left.sumLeavesNode() + right.sumLeavesNode();
+    }
+
+
+    public int countFullNode() {
+        int count = 0;
+        if (left != null && right != null){
+            count = left.countFullNode()+ right.countFullNode();
+            count ++;
+        }
+        return count;
+    }
 }
