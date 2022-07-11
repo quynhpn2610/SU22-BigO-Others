@@ -40,4 +40,14 @@ class TreeNode{
         if (left==null) return val;
         else return left.minNode();
     }
+
+    public void printInorderNode(){
+        if (left != null){
+            left.printInorderNode();
+        }
+        System.out.printf("%d ", val);
+        if (right != null){
+            right.printInorderNode();
+        }
+    }
 }

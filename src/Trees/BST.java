@@ -20,4 +20,8 @@ class BST {
         return root.minNode();
     }
 
+    public void printInorderBST(){
+        root.printInorderNode();
+    }
+
 }
