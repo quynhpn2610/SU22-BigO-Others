@@ -44,4 +44,8 @@ class BST {
         }
         return root.countFullNode();
     }
+
+    public void postOrderTraversalBST() {
+        root.postOrderTraversalNode();
+    }
 }

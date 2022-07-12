@@ -91,4 +91,16 @@ class TreeNode{
         }
         return 0;
     }
+
+    public void postOrderTraversalNode() {
+        if (left != null){
+            left.postOrderTraversalNode();
+        }
+        if (right != null){
+            right.postOrderTraversalNode();
+        }
+        if (val % 2 == 0){
+            System.out.print(val + " ");
+        }
+    }
 }
