@@ -1,5 +1,8 @@
 package Trees;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class TreeNode{
     public int val;
     public TreeNode left;
@@ -76,13 +79,16 @@ class TreeNode{
         return left.sumLeavesNode() + right.sumLeavesNode();
     }
 
-
     public int countFullNode() {
-        int count = 0;
-        if (left != null && right != null){
-            count = left.countFullNode()+ right.countFullNode();
-            count ++;
+        if(left!=null && right!=null) {
+            return 1 + left.countFullNode() + right.countFullNode();
         }
-        return count;
+        else if(left != null){
+            return left.countFullNode();
+        }
+        else if(right != null){
+            return right.countFullNode();
+        }
+        return 0;
     }
 }
