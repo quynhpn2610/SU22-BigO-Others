@@ -3,6 +3,7 @@ package Review;
 import java.util.Scanner;
 
 public class PrintIndex {
+    // Lam lai bang Binary Search
     private static int printIndexOfElement(int element, int[] arr){
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == element){

@@ -1,5 +1,10 @@
 package Trees;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 class BST {
     private TreeNode root;
 
@@ -47,5 +52,10 @@ class BST {
 
     public void postOrderTraversalBST() {
         root.postOrderTraversalNode();
+    }
+
+    public int sumOfSmallerBST(int x){
+        if (root == null) return 0;
+        return root.sumOfSmallerNode(x);
     }
 }

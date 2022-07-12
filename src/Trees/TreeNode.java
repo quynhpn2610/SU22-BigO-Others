@@ -2,6 +2,7 @@ package Trees;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 class TreeNode{
     public int val;
@@ -80,16 +81,11 @@ class TreeNode{
     }
 
     public int countFullNode() {
-        if(left!=null && right!=null) {
-            return 1 + left.countFullNode() + right.countFullNode();
-        }
-        else if(left != null){
-            return left.countFullNode();
-        }
-        else if(right != null){
-            return right.countFullNode();
-        }
-        return 0;
+        int count = 0;
+        if (left != null) count += left.countFullNode();
+        if (right != null) count += right.countFullNode();
+        if (left != null && right != null) count += 1;
+        return count;
     }
 
     public void postOrderTraversalNode() {
@@ -102,5 +98,14 @@ class TreeNode{
         if (val % 2 == 0){
             System.out.print(val + " ");
         }
+    }
+
+
+    public int sumOfSmallerNode(int x) {
+        int sum = 0;
+        if (this.val < x) sum += this.val;
+        if (left != null) sum += left.sumOfSmallerNode(x);
+        if (right != null) sum += right.sumOfSmallerNode(x);
+        return sum;
     }
 }
