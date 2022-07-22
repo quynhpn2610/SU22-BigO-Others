@@ -43,11 +43,9 @@ public class EdgeList {
         }
         System.out.println(edgeList.size());
 
-        for (Edge e:
-             edgeList) {
-            System.out.println(e.toString());
+        for (int i = 0; i < edgeList.size(); i++) {
+            System.out.println(edgeList.get(i).u + " " + edgeList.get(i).v);
         }
-
         sc.close();
     }
 }
