@@ -13,9 +13,15 @@ public class ProductOfLoops {
         }
     }
 
+    static int power(int n, int p){
+        if (p==0) return 1;
+        else return n*power(n, p-1);
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = Integer.parseInt(sc.next());
+
         Edge[] edgeList = new Edge[n];
 
         for (int i = 0; i < n; i++) {
@@ -28,8 +34,8 @@ public class ProductOfLoops {
 
         boolean hasSpecial = false;
 
-        int product = 1;
-        int count = 0;
+        long product = 1;
+        long count = 0;
         for (Edge e:
              edgeList) {
             if (e.u == e.v){
@@ -41,7 +47,8 @@ public class ProductOfLoops {
         if (hasSpecial == false){
             System.out.println(-1);
         }
-        product = (int) (product % (Math.pow(10, 6)/7));
+        final long a = (long) (power(10, 6)/7);
+        product = product % a;
         System.out.print(count + " ");
         System.out.print(product);
     }
