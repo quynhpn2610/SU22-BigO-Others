@@ -1,7 +1,4 @@
 package SinglyLinkedList;
-
-import com.sun.tools.hat.internal.util.Comparer;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
